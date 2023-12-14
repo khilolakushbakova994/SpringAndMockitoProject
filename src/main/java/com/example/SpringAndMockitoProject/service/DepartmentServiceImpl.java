@@ -8,6 +8,9 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static java.util.Arrays.stream;
+import static java.util.Locale.filter;
+
 
 @Service
 
@@ -21,31 +24,22 @@ public class DepartmentServiceImpl implements DepartmentService{
 
     @Override
     public List<Employee> returnMaxSalary(int department) {
-        List<Employee> employeeList = employeeService.showAllEmployeeList();
-        List<Employee> maxSalary = employeeList
-                .stream()
+        return employeeService.showAllEmployeeList().stream()
                 .max(Comparator.comparing(Employee::getSalary)).stream().toList();
 
-        return maxSalary;
     }
 
     @Override
     public List<Employee>  returnMinSalary (int department) {
-        List<Employee> employeeList = employeeService.showAllEmployeeList();
-        Optional<Employee> minSalary= employeeList
-                .stream()
-                .min(Comparator.comparing(Employee::getSalary));
-        return null;
+        return  employeeService.showAllEmployeeList().stream()
+                .min(Comparator.comparing(Employee::getSalary)).stream().toList();
     }
 
     @Override
     public List<Employee> returnEmployeeByDepartment(int departmentId) {
-        List<Employee> employeeList = employeeService.showAllEmployeeList();
-        List<Employee> byDepartment = employeeList
-                .stream()
+        return employeeService.showAllEmployeeList().stream()
                 .filter(employee -> employee.getDepartmentId()==departmentId)
-                .collect(Collectors.toList());
-        return null;
+                .toList();
     }
 
     @Override

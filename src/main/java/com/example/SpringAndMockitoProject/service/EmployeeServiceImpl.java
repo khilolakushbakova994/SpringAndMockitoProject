@@ -25,7 +25,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         if (!checkName(firstName, lastName) ){
             throw new InvalidTextException();
         }
-        Employee employee = new Employee(firstName, lastName);
+        Employee employee = new Employee(firstName, lastName, department, salary);
         if (employees.containsKey(employee.getFullName())) {
             throw new EmployeeAlreadyAddedException("уже есть такой сотрудник");
         }

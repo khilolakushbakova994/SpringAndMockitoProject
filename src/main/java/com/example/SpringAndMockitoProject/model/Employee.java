@@ -12,6 +12,8 @@ public class  Employee {
     public Employee(String firstName, String lastName, int departmentId, int salary) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.departmentId=departmentId;
+        this.salary =salary;
     }
 
     public Employee(String firstName, String lastName) {
@@ -21,9 +23,6 @@ public class  Employee {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
 
     public String getLastName() {
         return lastName;
@@ -39,17 +38,11 @@ public class  Employee {
         return salary;
     }
 
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
 
     public int getDepartmentId() {
         return departmentId;
     }
 
-    public void setDepartmentId(int departmentId) {
-        this.departmentId = departmentId;
-    }
 
     @Override
     public boolean equals(Object o) {
