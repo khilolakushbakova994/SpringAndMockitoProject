@@ -26,7 +26,7 @@ class EmployeeServiceTest {
                FIRST_EMPLOYEE.getLastName(),
                FIRST_EMPLOYEE.getDepartmentId(),
                FIRST_EMPLOYEE.getSalary());
-       assertEquals(FIRST_EMPLOYEE, add);
+       assertEquals(FIRST_EMPLOYEE,add);
        assertEquals(1, out.showAllEmployeeList().size());
 
     }

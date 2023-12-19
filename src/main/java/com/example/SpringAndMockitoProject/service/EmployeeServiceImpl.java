@@ -1,5 +1,6 @@
 package com.example.SpringAndMockitoProject.service;
 
+import com.example.SpringAndMockitoProject.exeptions.FullStorageException;
 import com.example.SpringAndMockitoProject.exeptions.InvalidTextException;
 import com.example.SpringAndMockitoProject.exeptions.EmployeeAlreadyAddedException;
 import com.example.SpringAndMockitoProject.exeptions.EmployeeNotFoundException;
@@ -24,6 +25,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee addEmployee(String firstName, String lastName, int department, int salary) {
         if (!checkName(firstName, lastName) ){
             throw new InvalidTextException();
+        }
+        if(employees.size()>=MAX){
+            throw new FullStorageException();
         }
         Employee employee = new Employee(firstName, lastName, department, salary);
         if (employees.containsKey(employee.getFullName())) {
